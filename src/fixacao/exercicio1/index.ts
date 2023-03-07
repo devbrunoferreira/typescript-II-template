@@ -9,3 +9,51 @@ que todos os objetos tenham as mesmas propriedades.
 
 3. Modifique o type Pessoa para que possamos escolher apenas entre as cores do arco-íris. Utilize um enum para isso.
 */
+
+enum Rainbow {
+  RED = "Red",
+  ORANGE = "Orange",
+  YELLOW = "Yellow",
+  GREEN = "Green",
+  BLUE = "Blue",
+  VIOLET = "Violet"
+}
+
+type Person = {
+  name: string,
+  age: number,
+  favoriteColor: Rainbow
+}
+
+const person1: Person = {
+  name: "Bruno",
+  age: 31,
+  favoriteColor: Rainbow.BLUE
+}
+
+const person2: Person = {
+  name: "Duda",
+  age: 8,
+  favoriteColor: Rainbow.YELLOW
+}
+
+const person3: Person = {
+  name: "Wanessa",
+  age: 36,
+  favoriteColor: Rainbow.RED
+}
+
+const person4: Person = {
+  name: "Nadia",
+  age: 29,
+  favoriteColor: Rainbow.VIOLET
+}
+
+const all: Person[] = []
+
+all.push(person1);
+all.push(person2);
+all.push(person3);
+all.push(person4);
+
+console.table(all)
