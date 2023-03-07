@@ -1,5 +1,5 @@
 /* EXERCÍCIO DE FIXAÇÃO
-Considere que você esteja implementando uma rede social composta por posts de usuários. Cada um dos posts possui um 
+Considere que você esteja implementando uma rede social composta por posts de usuários. Cada um dos posts possui um
 autor e um texto. Abaixo, temos um exemplo de array de posts em JS!
 
 Tendo isso em mente, faça o que se pede:
@@ -7,11 +7,16 @@ Tendo isso em mente, faça o que se pede:
 1. Crie um type para representar um post;
 2. Utilize o tipo criado acima para fazer a tipagem do array posts;
 3. Analise a função buscarPostsPorAutor, escrita em JS:
-  a. Quais são as entradas e saídas dessa função? 
+  a. Quais são as entradas e saídas dessa função?
   b. Faça a tipagem da função.
 */
 
-const posts = [
+type Post = {
+  autor: string,
+  texto: string
+}
+
+const posts: Post[] = [
   {
     autor: 'Alvo Dumbledore',
     texto: 'Não vale a pena viver sonhando e se esquecer de viver'
@@ -34,10 +39,14 @@ const posts = [
   }
 ]
 
-function buscarPostsPorAutor(posts, autorInformado) {
+function buscarPostsPorAutor(posts: Post[], autorInformado: string): Post[] {
   return posts.filter(
-    (post) => {
+    (post: any) => {
       return post.autor === autorInformado
     }
   )
 }
+
+console.log(buscarPostsPorAutor(posts, 'Alvo Dumbledore'));
+console.log(buscarPostsPorAutor(posts, 'Lord Voldemort'));
+
